@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="{{ url_for('evaluation.display_eval_form') }}" method="POST">
+        {{ EvalForm.hidden_tag() }}
+        {% for article, eval in zip(Articles, EvalForm.evals) %}
+            {{ eval.hidden_tag() }}
+            <h2> {{ article.title }} </h2>
+            <h4> {{ article.subtitle }} </h4>
+            <p> {{ article.text }} </p>
+            <div class="row">
+                <div class="col-md-4">
+                    <p> {{ eval.form.category.label }}: </p> <p> {{ eval.form.category }} </p>
+                </div>
+                <div class="col-md-4">
+                    <p> {{ eval.form.comment.label }}: </p> <p> {{ eval.form.comment(rows="1", cols="50") }} </p>
+                </div>
+            </div>
+        {% endfor %}
+        <p> {{ EvalForm.submit(class="btn btn-primary") }} </p>
+    </form>
+    <div class="col-md-4">
+        {% for article, eval in zip(Articles, EvalForm.evals) %}
+            {{ eval.label }}
+        {% endfor %}
+        It is time to receive a random selection of news articles and evaluate each of them as real or fake!
+
+        Please click on the button below. Before viewing the articles, you will receive detailed instructions
+        on how to evaluate a news article as real or fake.
+    </div>
+</div>
+{% endblock content %}
