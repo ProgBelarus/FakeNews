@@ -4,7 +4,7 @@ from app.catalog.webscraper.antiwar_com import add_articles_for_date_to_database
 from app.catalog.webscraper.madworldnews_com import add_articles_for_page_to_database
 from datetime import datetime
 
-flask_app = create_app('dev')
+flask_app = create_app('prod')
 with flask_app.app_context():
     db.create_all()
     if not User.query.filter_by(user_name='harry').first():
