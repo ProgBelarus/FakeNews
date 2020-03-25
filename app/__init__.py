@@ -6,6 +6,8 @@ from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_heroku import Heroku
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
@@ -28,13 +30,34 @@ def create_app(config_type):  # dev, test, or prod
     bcrypt.init_app(app)
     heroku.init_app(app)
 
+    from app.admin.views import MyAdminIndexView, AnalyticsView, UserView, EvaluationView, ArticleView
+    adm1 = Admin(app, name='Admin Access System', template_mode='bootstrap3', index_view=MyAdminIndexView())
+
+    # Add administrative views here
+    from app.auth.models import User
+    from app.catalog.models import Book
+    from app.catalog.models import Publication
+    from app.eval.models import Evaluation
+    from app.auth.models import Role
+
+    adm1.add_view(UserView(User, db.session))
+    adm1.add_view(ModelView(Role, db.session))
+    adm1.add_view(ArticleView(Book, db.session))
+    adm1.add_view(ModelView(Publication, db.session))
+    adm1.add_view(EvaluationView(Evaluation, db.session))
+
+    adm1.add_view(AnalyticsView(name='Analytics', endpoint='analytics'))
+
     from app.catalog import main  # import blueprint
     app.register_blueprint(main)  # register blueprint
 
-    from app.eval import evaluation
-    app.register_blueprint(evaluation)
+    from app.eval import eval1
+    app.register_blueprint(eval1)
 
     from app.auth import authentication
     app.register_blueprint(authentication)
+
+    from app.admin import adm
+    app.register_blueprint(adm)
 
     return app

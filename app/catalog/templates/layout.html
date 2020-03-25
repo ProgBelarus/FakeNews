@@ -27,7 +27,7 @@
                     </a>
                     <ul class="nav navbar-nav pull-right">
                         <li><a href="{{ url_for('main.display_books') }}"> Home </a></li>
-                        <li><a href="{{ url_for('evaluation.display_eval_form') }}"> Evaluation </a></li>
+                        <li><a href="{{ url_for('eval1.display_eval_form') }}"> Evaluation </a></li>
                         {% if current_user.is_authenticated %}
                             <li><a href="{{ url_for('authentication.log_out_user') }}"> SignOut </a></li>
                         {% else %}

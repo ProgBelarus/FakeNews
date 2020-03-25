@@ -18,7 +18,7 @@ class Evaluation(db.Model):
         self.category = category
         self.comments = comments
         self.article_id = article_id
-        self.user_id  = user_id
+        self.user_id = user_id
 
     @classmethod
     def create_evaluation(cls, form_id, category, comments, article_id, user_id):

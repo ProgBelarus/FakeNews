@@ -1,17 +1,22 @@
 from app import create_app, db
-from app.auth.models import User
+from app.auth.models import User, Role
 from app.catalog.webscraper.antiwar_com import add_articles_for_date_to_database
 from app.catalog.webscraper.madworldnews_com import add_articles_for_page_to_database
 from datetime import datetime
 from sqlalchemy import exc
 
-flask_app = create_app('prod')
+flask_app = create_app('dev')
 with flask_app.app_context():
     db.create_all()
-    try:
-        if not User.query.filter_by(user_name='harry').first():
-            User.create_user(user='harry', email='harry@potters.com', password='secret')
-        add_articles_for_date_to_database(datetime(2019, 8, 30))
-        add_articles_for_page_to_database(1)
-    except exc.IntegrityError:
-        flask_app.run()
+    # try:
+    if not User.query.filter_by(user_name='administrator').first():
+        User.create_user(user='administrator', email='admin@admin.com', password='jbaijvnakovninciewvun')
+        # note: password from harry@potters.com is 'secret'
+    admin_usr = User.query.filter_by(user_name='administrator').first()
+    admin_usr.roles = [Role.query.filter_by(name='Admin').first(), ]
+    db.session.commit()
+    add_articles_for_date_to_database(datetime(2019, 8, 30))
+    add_articles_for_page_to_database(1)
+
+    # except exc.IntegrityError:
+    flask_app.run()

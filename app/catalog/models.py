@@ -44,6 +44,8 @@ class Book(db.Model):
     # Relationship
     pub_id = db.Column(db.Integer, db.ForeignKey('publication.id'))
 
+    evals = db.relationship('Evaluation', backref='article', lazy=True)
+
     def __init__(self, title, subtitle, text, url, pub_date, pub_id):
         # self.title = title
         # self.author = author

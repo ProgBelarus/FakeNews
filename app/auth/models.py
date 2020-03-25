@@ -12,6 +12,9 @@ class User(UserMixin, db.Model):
     user_password = db.Column(db.String(80))
     registration_date = db.Column(db.DateTime, default=datetime.now)
 
+    roles = db.relationship('Role', secondary='user_roles')
+    evals = db.relationship('Evaluation', backref='user', lazy=True)
+
     def check_password(self, password):
         return bcrypt.check_password_hash(self.user_password, password)
 
@@ -26,6 +29,22 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return 'User: {} with password {}'.format(self.user_email, self.user_password)
+
+# Define the Role data-model
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.String(50), unique=True)
+
+    def __repr__(self):
+        return '{}'.format(self.name)
+
+# Define the UserRoles association table
+class UserRoles(db.Model):
+    __tablename__ = 'user_roles'
+    id = db.Column(db.Integer(), primary_key=True)
+    user_id = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'))
+    role_id = db.Column(db.Integer(), db.ForeignKey('roles.id', ondelete='CASCADE'))
 
 
 @login_manager.user_loader
