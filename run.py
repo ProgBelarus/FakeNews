@@ -8,6 +8,7 @@ from sqlalchemy import exc
 flask_app = create_app('prod')
 with flask_app.app_context():
     db.create_all()
+
     try:
         if not User.query.filter_by(user_name='administrator').first():
             User.create_user(user='administrator', email='admin@admin.com', password='jbaijvnakovninciewvun')
@@ -17,7 +18,6 @@ with flask_app.app_context():
         db.session.commit()
         add_articles_for_date_to_database(datetime(2019, 8, 30))
         add_articles_for_page_to_database(1)
-
     except exc.IntegrityError:
         flask_app.run()
 

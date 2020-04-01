@@ -29,6 +29,9 @@
                     </a>
                     <ul class="nav navbar-nav navbar-expand-sm pull-right">
                         <li><a href="{{ url_for('main.display_books') }}"> Home </a></li>
+                        {% if current_user.user_name == 'administrator' %}
+                             <li><a href="{{ url_for('admin.index') }}"> Admin Console </a></li>
+                        {% endif %}
                         {% if current_user.is_authenticated %}
 {#                            <li><a href="{{ url_for('eval1.display_eval_form') }}"> Evaluation </a></li>#}
                         {% endif %}
@@ -41,7 +44,7 @@
                         <li>
                             <a href="">
                                 {% if current_user.is_authenticated %}
-                                    Logged-In as <b style="color: deeppink"> {{ current_user.user_name.title() }} </b>
+                                    Logged-In as <b style="color: #ff1493"> {{ current_user.user_name.title() }} </b>
                                 {% else %}
                                     Not Logged-In
                                 {% endif %}
