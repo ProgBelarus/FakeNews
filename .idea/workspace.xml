@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a258bb56-1ad0-49aa-aa93-7dcb6fa67e34" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/eval/templates/evaluation_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catalog/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/catalog/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/eval/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/eval/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/eval/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/eval/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/eval/templates/evaluation_prompt.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/eval/templates/evaluation_prompt.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,11 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/prod.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/eval/forms.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -109,6 +95,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/eval/templates/evaluation_prompt.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -122,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/catalog/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="56" column="53" lean-forward="true" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+            <state relative-caret-position="316">
+              <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -188,7 +186,6 @@
         <option value="$PROJECT_DIR$/app/admin/views.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/config/dev.py" />
-        <option value="$PROJECT_DIR$/run.py" />
         <option value="$PROJECT_DIR$/app/catalog/forms.py" />
         <option value="$PROJECT_DIR$/app/catalog/routes.py" />
         <option value="$PROJECT_DIR$/app/eval/templates/evaluation_results.html" />
@@ -197,6 +194,7 @@
         <option value="$PROJECT_DIR$/app/eval/templates/evaluation_prompt.html" />
         <option value="$PROJECT_DIR$/app/catalog/templates/home.html" />
         <option value="$PROJECT_DIR$/app/catalog/templates/layout.html" />
+        <option value="$PROJECT_DIR$/run.py" />
       </list>
     </option>
   </component>
@@ -371,17 +369,18 @@
       <workItem from="1583363212784" duration="280000" />
       <workItem from="1583367553025" duration="13342000" />
       <workItem from="1583962875810" duration="1444000" />
-      <workItem from="1583965304543" duration="28792000" />
+      <workItem from="1583965304543" duration="28959000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53415000" />
+    <option name="totallyTimeSpent" value="53582000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.17582418" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49925706" visible="true" weight="0.17582418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5007429" side_tool="true" weight="0.17216118" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -395,7 +394,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32951945" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40612245" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.40612245" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32951945" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -580,16 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
@@ -691,8 +680,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/catalog/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="56" column="53" lean-forward="true" selection-start-line="56" selection-start-column="53" selection-end-line="56" selection-end-column="53" />
+        <state relative-caret-position="316">
+          <caret line="52" column="29" lean-forward="true" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
