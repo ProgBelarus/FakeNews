@@ -12,5 +12,5 @@ class EvaluateArticleForm(FlaskForm):
 
 
 class EvaluateManyArticlesForm(FlaskForm):
-    evals = FieldList(FormField(EvaluateArticleForm), min_entries=5)
+    evals = FieldList(FormField(EvaluateArticleForm), min_entries=20)
     submit = SubmitField('Submit')

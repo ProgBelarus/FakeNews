@@ -2,32 +2,42 @@
 
 {% block content %}
 <div class="container">
-    <form action="{{ url_for('eval1.display_eval_form') }}" method="POST">
-        {{ EvalForm.hidden_tag() }}
-        {% for article, eval in zip(Articles, EvalForm.evals) %}
-            {{ eval.hidden_tag() }}
-            <h2> {{ article.title }} </h2>
-            <h4> {{ article.subtitle }} </h4>
-            <p> {{ article.text }} </p>
-            <div class="row">
-                <div class="col-md-4">
-                    <p> {{ eval.form.category.label }}: </p> <p> {{ eval.form.category }} </p>
+<div class="panel panel-default">
+      <div class="panel-heading"><h2>Form</h2></div>
+      <div class="panel-body">
+            <form action="{{ url_for('eval1.display_eval_form') }}" method="POST">
+                {{ EvalForm.hidden_tag() }}
+                 <div class="panel-group">
+                {% for article, eval in zip(Articles, EvalForm.evals) %}
+                    {{ eval.hidden_tag() }}
+                    <div class="panel panel-primary">
+                      <div class="panel-heading"><h2> {{ article.title }} </h2> <br><h4> {{ article.subtitle }} </h4> </div>
+                      <div class="panel-body"><p style="font-size:20px"> {{ article.text }} </p></div>
+                    </div>
+                    <div class="panel panel-primary">
+                      <div class="panel-heading"><h5> Your evaluation of this article: </h5> </div>
+                      <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p> {{ eval.form.category.label }}: </p> <p> {{ eval.form.category }} </p>
+                            </div>
+                            <div class="col-md-2">
+                                <p> {{ eval.form.comment.label }}: </p> <p> {{ eval.form.comment(rows="1", cols="50") }} </p>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                     <br> <br>
+                {% endfor %}
+                 </div>
+                <div class="panel panel-danger">
+                    <div class="panel-heading"><h4>Warning</h4></div>
+                    <div class="panel-body"><p style="font-size:20px"> You are about to submit the form.
+                        Please double-check that your answers have been entered correctly for each news article.</p></div>
                 </div>
-                <div class="col-md-4">
-                    <p> {{ eval.form.comment.label }}: </p> <p> {{ eval.form.comment(rows="1", cols="50") }} </p>
-                </div>
-            </div>
-        {% endfor %}
-        <p> {{ EvalForm.submit(class="btn btn-primary") }} </p>
-    </form>
-    <div class="col-md-4">
-        {% for article, eval in zip(Articles, EvalForm.evals) %}
-            {{ eval.label }}
-        {% endfor %}
-        It is time to receive a random selection of news articles and evaluate each of them as real or fake!
-
-        Please click on the button below. Before viewing the articles, you will receive detailed instructions
-        on how to evaluate a news article as real or fake.
-    </div>
+                <p> {{ EvalForm.submit(class="btn btn-primary") }} </p>
+            </form>
+      </div>
+</div>
 </div>
 {% endblock content %}

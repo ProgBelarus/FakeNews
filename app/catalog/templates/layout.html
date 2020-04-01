@@ -8,7 +8,9 @@
         <head>
             <title> Fake News Detection </title>
             <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+{#            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">#}
             <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
             <link href="{{ url_for('static', filename = 'css/styles.css') }}" rel="stylesheet">
         </head>
@@ -25,9 +27,11 @@
                     <a class="navbar navbar-text" href="{{ url_for('main.display_books') }}">
                         <h3 class="title"> Large-Scale Fake News Detection </h3>
                     </a>
-                    <ul class="nav navbar-nav pull-right">
+                    <ul class="nav navbar-nav navbar-expand-sm pull-right">
                         <li><a href="{{ url_for('main.display_books') }}"> Home </a></li>
-                        <li><a href="{{ url_for('eval1.display_eval_form') }}"> Evaluation </a></li>
+                        {% if current_user.is_authenticated %}
+{#                            <li><a href="{{ url_for('eval1.display_eval_form') }}"> Evaluation </a></li>#}
+                        {% endif %}
                         {% if current_user.is_authenticated %}
                             <li><a href="{{ url_for('authentication.log_out_user') }}"> SignOut </a></li>
                         {% else %}
@@ -64,7 +68,7 @@
             <footer>
                 <div class="container ftr">
                     <hr>
-                    <p class="text-center small">The Shop Around The Corner &copy;  |  2019</p>
+                    <p class="text-center small">Fake News Detection Team &copy;  |  2020</p>
                 </div>
             </footer>
         {% endblock footer %}

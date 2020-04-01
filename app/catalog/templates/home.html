@@ -1,21 +1,104 @@
 {% extends 'layout.html' %}
-    {% block content %}
-        <div class="container books">
-            <div class="row row-no-gutters">
-                {% for book in books %}
-                    <div class="col-md-6">
-                        <br>
-                        <h4>{{ book.title }} </h4>
-                        <p> Subtitle: {{ book.subtitle }} </p>
-                        <p> Text: {{ book.text }} </p>
-                        <p> Publication Date: {{ book.pub_date }} </p>
-                        <p><a href="{{ url_for('main.display_publisher',publisher_id=book.pub_id) }}">Publisher Id: {{ book.pub_id }}</a></p>
-                        <span class="label label-success"><a href="{{ url_for('main.create_book', pub_id=book.pub_id) }}" style="color: floralwhite"> create </a></span>
-                        <span class="label label-primary"><a href="{{ url_for('main.edit_book', book_id=book.id) }}" style="color: floralwhite"> edit </a></span>
-                        <span class="label label-info"><a href="{{ url_for('main.delete_book', book_id=book.id) }}" style="color: floralwhite"> delete </a></span>
-                        <br><br>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    {% endblock content %}
+{% block content %}
+{#        <div class="container books">#}
+{#            <div class="row row-no-gutters">#}
+{#                {% for book in books %}#}
+{#                    <div class="col-md-6">#}
+{#                        <br>#}
+{#                        <h4>{{ book.title }} </h4>#}
+{#                        <p> Subtitle: {{ book.subtitle }} </p>#}
+{#                        <p> Text: {{ book.text }} </p>#}
+{#                        <p> Publication Date: {{ book.pub_date }} </p>#}
+{#                        <p><a href="{{ url_for('main.display_publisher',publisher_id=book.pub_id) }}">Publisher Id: {{ book.pub_id }}</a></p>#}
+{#                        <span class="label label-success"><a href="{{ url_for('main.create_book', pub_id=book.pub_id) }}" style="color: floralwhite"> create </a></span>#}
+{#                        <span class="label label-primary"><a href="{{ url_for('main.edit_book', book_id=book.id) }}" style="color: floralwhite"> edit </a></span>#}
+{#                        <span class="label label-info"><a href="{{ url_for('main.delete_book', book_id=book.id) }}" style="color: floralwhite"> delete </a></span>#}
+{#                        <br><br>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endblock content %}#}
+
+    {% if current_user.is_authenticated %}
+        <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2>Instructions</h2></div>
+      <div class="panel-body">
+                Hello! You will be shortly asked to complete the fake news survey. Before doing so,
+                please familiarize yourself with the instructions given below. On completing the form,
+                you will receive further instructions on how to provide evidence of form completion in
+                your Amazon Mechanical Turk response.
+
+                <br><br>
+                <div class="panel-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Fake News: A Description</div>
+                  <div class="panel-body">
+                      Fake news is about making people believe false facts. For example, []
+                            tries to make people believe that [], which is not true [link]. A
+                            sentence you might highlight as an example of a false report is: []
+                </div>
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-body">
+                      An item may be heavily biased, but not be fake news. If the point of
+                            the item is to convince the reader of an opinion, but not to convince
+                            the reader that something happened that didn't actually happen, the
+                            item is not fake news. For example [] is not fake news despite being
+                            heavily biased.
+                  </div>
+                </div>
+                    <div class="panel panel-primary">
+                  <div class="panel-body">
+                      A heavily biased item that would lead the reader to believe false
+                            facts is fake news. For example,
+                              <a href="https://infostormer.com/jew-chuck-schumer-threatens-to-kill-supreme-court-justices/">this article</a>
+                              is fake news because the headline is false. However, if the full quote of what Schumer said were included, as it
+                            is in <a href="https://www.realclearpolitics.com/articles/2020/03/06/threatening_supreme_court_justices_is_never_ok_142586.html">this article</a>,
+                              the item would be not fake news.
+                  </div>
+                </div>
+                    <div class="panel panel-primary">
+                  <div class="panel-body">
+                      A subtype of heavily biased items is items engaging in conspiratorial
+                            thinking. For example,
+                            <a href="https://www.rushlimbaugh.com/daily/2020/02/24/overhyped-coronavirus-weaponized-against-trump/">this article</a>
+                            suggests that the Coronavirus originated in a lab in China. Although
+                            this is widely believed to be a false claim, any reader would
+                            understand this as a conjecture, rather than a report of known facts
+                  </div>
+                </div>
+{#
+{##}
+{#                <div class="panel panel-info">#}
+{#                  <div class="panel-heading">Panel with panel-info class</div>#}
+{#                  <div class="panel-body">Panel Content</div>#}
+{#                </div>#}
+{##}
+{#                <div class="panel panel-warning">#}
+{#                  <div class="panel-heading">Panel with panel-warning class</div>#}
+{#                  <div class="panel-body">Panel Content</div>#}
+                <br> <br>
+
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Instructions</div>
+                  <div class="panel-body">
+                      The form will ask you to evaluate 20 news articles. Each article will be given as raw text, consisting of its
+                      title, subtitle (if exists), the main text body, and the date it was posted.
+                      For each article, you will provide a label, which you should select from a dropdown list below the article.
+                      If you determine that the article is fake, please copy and paste the first false sentence in the article into the Comments box.
+                  </div>
+                </div>
+      </div>
+
+                <button type="button" class="btn btn-primary btn-lg" onclick="location.href = '{{ url_for('eval1.display_eval_form') }}'">Take the Survey</button>
+      </div>
+    </div>
+</div>
+    {% else %}
+        <h2>Welcome to the Fake News Website! Please log in to view form instructions.</h2>
+    {% endif %}
+
+
+{% endblock content %}

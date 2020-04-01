@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "This script will deploy the website on Heroku"
+heroku pg:reset --confirm fnd-version-1
+PGUSER=postgres PGPASSWORD=forPostgres100! heroku pg:push 'postgresql://postgres:forPostgres100!@localhost/FakeNewsDB' postgresql-octagonal-41321
+git init
+heroku git:remote -a fnd-version-1
+git remote add origin https://github.com/ProgBelarus/FakeNews/blob/master/app/admin/views.py
+git pull origin master
+git add .
+git commit -am "pre-heroku-install"
+git push heroku master

@@ -11,16 +11,15 @@ import numpy as np
 @eval1.route('/evaluation', methods=['GET', 'POST'])
 def display_eval_form():
     form = EvaluateManyArticlesForm(request.form)
-    articles = np.random.choice(Book.query.all(), size=5, replace=False)
+    articles = np.random.choice(Book.query.all(), size=20, replace=False)
     if form.validate_on_submit():
         cnt=0
+        form_id = np.random.randint(10000000)
         for entry in form.evals.entries:
-            print(entry.data['category'])
-            print(entry.data['comment'])
-            Evaluation.create_evaluation(form_id=0, category=entry.data['category'], comments=entry.data['comment'], article_id=articles[cnt].id, user_id=current_user.id)
+            Evaluation.create_evaluation(form_id=form_id, category=entry.data['category'], comments=entry.data['comment'], article_id=articles[cnt].id, user_id=current_user.id)
             cnt += 1
+        return render_template('evaluation_results.html', form_id=form_id)
     return render_template('evaluation_prompt.html', EvalForm=form, Articles=articles, zip=zip)
-
 
 # @main.route('/display/publisher/<publisher_id>')
 # def display_publisher(publisher_id):
