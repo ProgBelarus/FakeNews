@@ -12,16 +12,16 @@
                     {{ eval.hidden_tag() }}
                     <div class="panel panel-primary">
                       <div class="panel-heading"><h2> {{ article.title }} </h2> <br><h4> {{ article.subtitle }} </h4> </div>
-                      <div class="panel-body"><p style="font-size:20px"> {{ article.text }} </p></div>
+                      <div class="panel-body"><p style="font-size:20px"> {{ article.text | safe }} </p></div>
                     </div>
                     <div class="panel panel-primary">
                       <div class="panel-heading"><h5> Your evaluation of this article: </h5> </div>
                       <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-8">
                                 <p> {{ eval.form.category.label }}: </p> <p> {{ eval.form.category }} </p>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-8">
                                 <p> {{ eval.form.comment.label }}: </p> <p> {{ eval.form.comment(rows="1", cols="50") }} </p>
                             </div>
                         </div>

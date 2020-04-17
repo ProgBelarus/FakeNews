@@ -4,7 +4,7 @@ import datetime
 from app.catalog.models import Publication, Book
 
 def get_articles_url_for_page(page_num):
-    BASE_URL = 'https://madworldnews.com/page/'
+    BASE_URL = 'https://clashdaily.com/page/'
     url_for_date = BASE_URL + str(page_num) + '/?s'
     resp = requests.get(url_for_date)
     soup = BeautifulSoup(resp.text, 'lxml')
@@ -20,18 +20,20 @@ def parse_article(article_url):
     resp = requests.get(article_url)
     soup = BeautifulSoup(resp.text, 'lxml')
     title_tag = soup.find("h1", {"class": "entry-title"})
-    paragraphs = soup.find("div", {"class": "entry-content"}).findAll("p")
+    paragraphs = soup.find("div", {"class": "td-post-content"}).findAll("p")
     article_text = ""
     for paragraph in paragraphs:
         article_text += "".join('<p>' + paragraph.decode_contents() + '</p>')
-    date = soup.find("span", {"class": "entry-meta-date"}).find("a").text
+    date = soup.find("div", {"class": "td-module-meta-info"}).find("p").text
+    index_start_delete = date.find("on") + 3
+    datetime_object = datetime.datetime.strptime(date[index_start_delete:], '%B %d, %Y')
 
     return {"title": title_tag.text,
             "subtitle": "",
             "text": article_text,
             "url": article_url,
-            "publisher": "madworldnews.com",
-            "date": date}
+            "publisher": "clashdaily.com",
+            "date": datetime_object}
 
 def articles_for_page(page_num):
     articles_url = get_articles_url_for_page(page_num)
@@ -42,8 +44,8 @@ def articles_for_page(page_num):
 def add_articles_for_page_to_database(page_num, max_number_to_add=10000):
     articles = articles_for_page(page_num)
 
-    if not Publication.query.filter_by(name = 'madworldnews.com').first():
-        Publication.create_publication(name = 'madworldnews.com')
+    if not Publication.query.filter_by(name = 'clashdaily.com').first():
+        Publication.create_publication(name = 'clashdaily.com')
 
     count_added = 0
     for article in articles:

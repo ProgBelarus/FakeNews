@@ -19,7 +19,7 @@ def display_eval_form():
             Evaluation.create_evaluation(form_id=form_id, category=entry.data['category'], comments=entry.data['comment'], article_id=articles[cnt].id, user_id=current_user.id)
             cnt += 1
         return render_template('evaluation_results.html', form_id=form_id)
-    return render_template('evaluation_prompt.html', EvalForm=form, Articles=articles, zip=zip)
+    return render_template('evaluation_prompt.html', EvalForm=form, Articles=articles, zip=zip, param='<br><br> Hello there!')
 
 # @main.route('/display/publisher/<publisher_id>')
 # def display_publisher(publisher_id):

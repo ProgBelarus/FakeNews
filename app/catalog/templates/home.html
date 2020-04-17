@@ -19,86 +19,135 @@
 {#            </div>#}
 {#        </div>#}
 {#    {% endblock content %}#}
-
-    {% if current_user.is_authenticated %}
-        <div class="container">
+{% if current_user.is_authenticated %}
+    <div class="container">
     <div class="panel panel-default">
-      <div class="panel-heading"><h2>Instructions</h2></div>
+      <div class="panel-heading"><h2>Please read this to get started with labelling news!</h2></div>
       <div class="panel-body">
-                Hello! You will be shortly asked to complete the fake news survey. Before doing so,
+                Hello! You will be shortly asked to complete the fake news labelling task. Before doing so,
                 please familiarize yourself with the instructions given below. On completing the form,
-                you will receive further instructions on how to provide evidence of form completion in
+                you will receive the form completion code that you will need to paste into
                 your Amazon Mechanical Turk response.
 
                 <br><br>
                 <div class="panel-group">
-                <div class="panel panel-primary">
-                  <div class="panel-heading">Fake News: A Description</div>
-                  <div class="panel-body">
-                      Fake news is about making people believe false facts. For example, []
-                            tries to make people believe that [], which is not true [link]. A
-                            sentence you might highlight as an example of a false report is: []
-                </div>
-                </div>
-                <div class="panel panel-primary">
-                  <div class="panel-body">
-                      An item may be heavily biased, but not be fake news. If the point of
-                            the item is to convince the reader of an opinion, but not to convince
-                            the reader that something happened that didn't actually happen, the
-                            item is not fake news. For example [] is not fake news despite being
-                            heavily biased.
-                  </div>
-                </div>
                     <div class="panel panel-primary">
-                  <div class="panel-body">
-                      A heavily biased item that would lead the reader to believe false
-                            facts is fake news. For example,
-                              <a href="https://infostormer.com/jew-chuck-schumer-threatens-to-kill-supreme-court-justices/">this article</a>
-                              is fake news because the headline is false. However, if the full quote of what Schumer said were included, as it
-                            is in <a href="https://www.realclearpolitics.com/articles/2020/03/06/threatening_supreme_court_justices_is_never_ok_142586.html">this article</a>,
-                              the item would be not fake news.
-                  </div>
-                </div>
+                      <div class="panel-heading">Fake News: A Description</div>
+                      <div class="panel-body">
+                          <p style="color:#2f67ff"><strong>Fake News:</strong></p>
+                          Fake news is about making people believe false facts. For example,
+                          <a href="http://news4ktla.com/mother-arrested-tattooing-son/">this article</a>
+                          tries to make people believe that a woman and her boyfriend etched a full-chest tattoo
+                          on their son and then traded him for drugs, which is
+                          <a href="https://www.snopes.com/fact-check/mother-arrested-after-tattooing-her-son/">
+                          not true</a>. A sentence you might highlight as an example of a false report is:
+                          "Authorities say that Wright is accused of allowing her boyfriend to etch a full chest
+                          tattoo across her two-year-old son’s upper torso and then trading the boy for crack cocaine."
+                        </div>
+                    </div>
                     <div class="panel panel-primary">
-                  <div class="panel-body">
-                      A subtype of heavily biased items is items engaging in conspiratorial
-                            thinking. For example,
-                            <a href="https://www.rushlimbaugh.com/daily/2020/02/24/overhyped-coronavirus-weaponized-against-trump/">this article</a>
-                            suggests that the Coronavirus originated in a lab in China. Although
-                            this is widely believed to be a false claim, any reader would
-                            understand this as a conjecture, rather than a report of known facts
-                  </div>
-                </div>
+                      <div class="panel-body">
+                          <p style="color:#2f67ff"><strong>Biased News:</strong></p>
+                          An item may be heavily biased, but not be fake news. If the point of
+                          the item is to convince the reader of an opinion, but not to convince
+                          the reader that something happened that didn't actually happen, the
+                          item is not fake news. For example,
+                          <a href="https://www.breitbart.com/politics/2020/04/15/
+                          bill-gates-trump-halting-who-funding-is-as-dangerous-as-it-sounds/">this article</a>
+                          is heavily biased against the WHO: it only contains one pro-WHO quote (by Bill Gates),
+                          followed by multiple anti-WHO quotes. However, this article is not fake news.
+                          <br> <br>
+                          However, a heavily biased item that would lead the reader to believe false facts <i>is</i>
+                          fake news. For example, <a href="https://infostormer.com/
+                          jew-chuck-schumer-threatens-to-kill-supreme-court-justices/">this article</a>
+                          is fake news because the headline is false. However, if the full quote of what
+                          Schumer said were included, as it is in <a href="https://www.realclearpolitics.com/
+                          articles/2020/03/06/threatening_supreme_court_justices_is_never_ok_142586.html">
+                          this article</a>, the item would be not fake news.
+                      </div>
+                    </div>
+                    <div class="panel panel-primary">
+                      <div class="panel-body">
+                          <p style="color:#2f67ff"><strong>Conspiracy News:</strong></p>
+                          A subtype of heavily biased items is items engaging in <i>conspiratorial
+                          thinking</i>. For example, <a href="https://www.rushlimbaugh.com/daily/2020/02/24/
+                          overhyped-coronavirus-weaponized-against-trump/">this article</a>
+                          suggests that the Coronavirus originated in a lab in China. Although
+                          this is widely believed to be a false claim, any reader would
+                          understand this as a conjecture, rather than a report of known facts.
+                      </div>
+                    </div>
+                    <div class="panel panel-primary">
+                      <div class="panel-body">
+                          <p style="color:#2f67ff"><strong>Opinion Articles:</strong></p>
+                          An item is best classified as an <i>opinion</i> piece if its <strong>only</strong> purpose
+                          is to <i>argue a personal opinion</i> regarding recent (or not-so-recent) news, rather than
+                          to merely <i>report news</i>. For example, <a href="https://www.nytimes.com/2020/04/17/
+                          opinion/coronavirus-relief-trump.html">this article</a> is an opinion article.
+                          Please note, however, that some articles might have a personal <i>style</i> of reporting,
+                          but are still best described as news articles rather than opinion pieces; an example is
+                          <a href="https://infostormer.com/stock-market-crashes-because-of-coronavirus-apocalypse/">
+                          this article</a>.
+                      </div>
+                    </div>
 {#
 {##}
-{#                <div class="panel panel-info">#}
-{#                  <div class="panel-heading">Panel with panel-info class</div>#}
-{#                  <div class="panel-body">Panel Content</div>#}
-{#                </div>#}
-{##}
-{#                <div class="panel panel-warning">#}
-{#                  <div class="panel-heading">Panel with panel-warning class</div>#}
-{#                  <div class="panel-body">Panel Content</div>#}
-                <br> <br>
+    {#                <div class="panel panel-info">#}
+    {#                  <div class="panel-heading">Panel with panel-info class</div>#}
+    {#                  <div class="panel-body">Panel Content</div>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="panel panel-warning">#}
+    {#                  <div class="panel-heading">Panel with panel-warning class</div>#}
+    {#                  <div class="panel-body">Panel Content</div>#}
+                    <br> <br>
+                    <div class="panel-group">
+                        <div class="panel panel-danger">
+                          <div class="panel-heading">Instructions</div>
+                          <div class="panel-body">
+                              We will ask you to evaluate 20 articles. For each article, you will be presented
+                              with its title, subtitle (if exists), and content.
+                              Your task will be to provide a label for each article. You should select this label
+                              from a dropdown list just below the article. The labels are: <strong>Legitimate,
+                              Fake, Satire, Biased Reporting, Conspiratorial Thinking, Opinion, Not a Valid Article.
+                              </strong> To choose the right label, please recall what you just read in the above section
+                              "Fake News: A Description". Please select the label "Not a Valid Article" if the item does
+                              not report or discuss news (an online cooking manual would not be an article), or if it is
+                              written in a language other than English.
 
-                <div class="panel panel-danger">
-                    <div class="panel-heading">Instructions</div>
-                  <div class="panel-body">
-                      The form will ask you to evaluate 20 news articles. Each article will be given as raw text, consisting of its
-                      title, subtitle (if exists), the main text body, and the date it was posted.
-                      For each article, you will provide a label, which you should select from a dropdown list below the article.
-                      If you determine that the article is fake, please copy and paste the first false sentence in the article into the Comments box.
-                  </div>
+                              If you determine that an article is fake, please <strong> copy and paste the first
+                              false sentence in the article into the Comment box. </strong>
+                          </div>
+                        </div>
+                        <div class="panel panel-danger">
+                          <div class="panel-body">
+                              Note: This system is under development, so articles may not always fully display properly.
+                              Sometimes videos/pictures may not show; in that case please ignore them and keep reading
+                              the article. If a Twitter or Facebook post quoted by the article
+                              are not properly formatted, please use your best judgement to determine where
+                              that Facebook post or tweet begins and ends in the text of the article (typically,
+                              it will end with a name/date tag, such as
+                              "— Cari Kelemen (@KelemenCari) April 6, 2020").
+                          </div>
+                        </div>
+                        <div class="panel panel-danger">
+                          <div class="panel-body">
+                              Once you have begun completing the form, <strong>do not attempt to go back to this
+                              page!</strong> If you do, your form responses will not be saved, and you will have to
+                              do it all over again. Therefore, before beginning the task, please reread
+                              all instructions on this page so as to remember them while labelling the news.
+                          </div>
+                        </div>
+                    </div>
                 </div>
-      </div>
-
-                <button type="button" class="btn btn-primary btn-lg" onclick="location.href = '{{ url_for('eval1.display_eval_form') }}'">Take the Survey</button>
-      </div>
+        <button type="button" class="btn btn-primary btn-lg"
+                onclick="location.href='{{ url_for('eval1.display_eval_form') }}'">Begin Labelling News!</button>
+    </div>
     </div>
 </div>
-    {% else %}
-        <h2>Welcome to the Fake News Website! Please log in to view form instructions.</h2>
-    {% endif %}
+{% else %}
+    <h2>Welcome to the Fake News Website! Please log in to view form instructions.</h2>
+{% endif %}
 
 
 {% endblock content %}

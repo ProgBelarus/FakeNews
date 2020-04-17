@@ -4,11 +4,11 @@ import datetime
 from app.catalog.models import Publication, Book
 
 def get_articles_url_for_page(page_num):
-    BASE_URL = 'https://madworldnews.com/page/'
-    url_for_date = BASE_URL + str(page_num) + '/?s'
+    BASE_URL = 'https://newswithviews.com/page/'
+    url_for_date = BASE_URL + str(page_num)
     resp = requests.get(url_for_date)
     soup = BeautifulSoup(resp.text, 'lxml')
-    article_url_tags = soup.find_all("h3", {"class": "entry-title"})
+    article_url_tags = soup.find("div", {"class": "fusion-blog-shortcode-1"}).find("div").findAll("h2", {"class": "entry-title"})
 
     articles_url = []
     for article_url_tag in article_url_tags:
@@ -20,17 +20,17 @@ def parse_article(article_url):
     resp = requests.get(article_url)
     soup = BeautifulSoup(resp.text, 'lxml')
     title_tag = soup.find("h1", {"class": "entry-title"})
-    paragraphs = soup.find("div", {"class": "entry-content"}).findAll("p")
+    paragraphs = soup.find("div", {"class": "post-content"}).findAll("p")
     article_text = ""
     for paragraph in paragraphs:
         article_text += "".join('<p>' + paragraph.decode_contents() + '</p>')
-    date = soup.find("span", {"class": "entry-meta-date"}).find("a").text
+    date = soup.find("span", {"class": "updated rich-snippet-hidden"}).text
 
     return {"title": title_tag.text,
             "subtitle": "",
             "text": article_text,
             "url": article_url,
-            "publisher": "madworldnews.com",
+            "publisher": "newswithviews.com",
             "date": date}
 
 def articles_for_page(page_num):
@@ -42,8 +42,8 @@ def articles_for_page(page_num):
 def add_articles_for_page_to_database(page_num, max_number_to_add=10000):
     articles = articles_for_page(page_num)
 
-    if not Publication.query.filter_by(name = 'madworldnews.com').first():
-        Publication.create_publication(name = 'madworldnews.com')
+    if not Publication.query.filter_by(name = 'newswithviews.com').first():
+        Publication.create_publication(name = 'newswithviews.com')
 
     count_added = 0
     for article in articles:

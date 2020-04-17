@@ -6,8 +6,8 @@ from wtforms.validators import Length
 class EvaluateArticleForm(FlaskForm):
     category = SelectField('Category', choices=[
         ('real', 'Legitimate'), ('fake', 'Fake'), ('satire', 'Satire'),
-        ('partisan', 'Extreme Partisan Bias'), ('conspiracy', 'Conspiracy Theory'),
-        ('opinion', 'Opinion'), ('convoluted', 'Convoluted')])
+        ('bias', 'Biased Reporting'), ('conspiracy', 'Conspiratorial Thinking'),
+        ('opinion', 'Opinion'), ('bad', 'Not a Valid Article (please explain why in the Comment box)')])
     comment = TextAreaField('Comment', validators=[Length(max=1000)])
 
 
