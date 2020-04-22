@@ -11,7 +11,7 @@ class MyAdminIndexView(AdminIndexView):
 class AnalyticsView(BaseView):
     @expose('/')
     def index(self):
-        return self.render('analytics_index.html', stri = current_user.user_name)
+        return self.render('analytics_index.html') #, stri = current_user.user_name)
 
 
 class UserView(ModelView):
@@ -24,4 +24,4 @@ class EvaluationView(ModelView):
 
 class ArticleView(ModelView):
     column_hide_backrefs = False
-    column_list = ('id', 'title', 'subtitle', 'text', 'url', 'pub_date', 'evals')
+    column_list = ('id', 'title', 'subtitle', 'text', 'url', 'pub_date', 'evals', 'is_gold')

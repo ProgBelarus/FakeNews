@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, FloatField
+from wtforms import BooleanField, DateField, StringField, SubmitField
 from wtforms.validators import DataRequired
 
 
@@ -10,13 +10,14 @@ from wtforms.validators import DataRequired
 #     submit = SubmitField('Update')
 #
 #
-# class CreateBookForm(FlaskForm):
+
+# class CreateArticleForm(FlaskForm):
 #
 #     title = StringField('Title', validators=[DataRequired()])
-#     author = StringField('Author', validators=[DataRequired()])
-#     avg_rating = FloatField('Rating', validators=[DataRequired()])
-#     format = StringField('Format', validators=[DataRequired()])
-#     img_url = StringField('Image', validators=[DataRequired()])
-#     num_pages = IntegerField('Pages', validators=[DataRequired()])
-#     pub_id = IntegerField('PublisherID', validators=[DataRequired()])
+#     subtitle = StringField('Subtitle', validators=[DataRequired()])
+#     text = StringField('Text', validators=[DataRequired()])
+#     url = StringField('URL', validators=[DataRequired()])
+#     publication = StringField('Source', validators=[DataRequired()])
+#     pub_date = DateField('Publication Date', validators=[DataRequired()])
+#     is_gold = BooleanField('Gold Standard?', validators=[DataRequired()])
 #     submit = SubmitField('Create')

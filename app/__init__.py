@@ -35,14 +35,14 @@ def create_app(config_type):  # dev, test, or prod
 
     # Add administrative views here
     from app.auth.models import User
-    from app.catalog.models import Book
+    from app.catalog.models import Article
     from app.catalog.models import Publication
     from app.eval.models import Evaluation
     from app.auth.models import Role
 
     adm1.add_view(UserView(User, db.session))
     adm1.add_view(ModelView(Role, db.session))
-    adm1.add_view(ArticleView(Book, db.session))
+    adm1.add_view(ArticleView(Article, db.session))
     adm1.add_view(ModelView(Publication, db.session))
     adm1.add_view(EvaluationView(Evaluation, db.session))
 

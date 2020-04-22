@@ -36,6 +36,13 @@ class Role(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(50), unique=True)
 
+    @classmethod
+    def create_role(cls, name):
+        role = cls(name=name)
+        db.session.add(role)
+        db.session.commit()
+        return role
+
     def __repr__(self):
         return '{}'.format(self.name)
 

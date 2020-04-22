@@ -1,7 +1,7 @@
 from app.eval import eval1
 from app import db
 from app.eval.models import Evaluation
-from app.catalog.models import Publication, Book
+from app.catalog.models import Publication, Article
 from flask_security import current_user
 from flask import render_template, flash, request, redirect, url_for
 from flask_login import login_required
@@ -11,7 +11,7 @@ import numpy as np
 @eval1.route('/evaluation', methods=['GET', 'POST'])
 def display_eval_form():
     form = EvaluateManyArticlesForm(request.form)
-    articles = np.random.choice(Book.query.all(), size=20, replace=False)
+    articles = np.random.choice(Article.query.all(), size=20, replace=False)
     if form.validate_on_submit():
         cnt=0
         form_id = np.random.randint(10000000)

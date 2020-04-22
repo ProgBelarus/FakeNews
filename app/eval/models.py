@@ -1,5 +1,5 @@
 from app import db
-from app.catalog.models import Book
+from app.catalog.models import Article
 from app.auth.models import User
 
 
@@ -10,7 +10,7 @@ class Evaluation(db.Model):
     form_id = db.Column(db.Integer, nullable=False)
     category = db.Column(db.String(80), nullable=False)
     comments = db.Column(db.String(1000))
-    article_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+    article_id = db.Column(db.Integer, db.ForeignKey('article.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     def __init__(self, form_id, category, comments, article_id, user_id):
@@ -29,7 +29,7 @@ class Evaluation(db.Model):
 
     def __repr__(self):
         return 'News article titled "{}" is categorized as {} by user {}'.format(
-            Book.query.get(self.article_id).title,
+            Article.query.get(self.article_id).title,
             self.category,
             User.query.get(self.user_id).user_email
         )
