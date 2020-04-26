@@ -24,4 +24,4 @@ class EvaluationView(ModelView):
 
 class ArticleView(ModelView):
     column_hide_backrefs = False
-    column_list = ('id', 'title', 'subtitle', 'text', 'url', 'pub_date', 'evals', 'is_gold')
+    column_list = ('id', 'title', 'subtitle', 'text', 'url', 'pub_date', 'pub_id', 'evals', 'is_gold')

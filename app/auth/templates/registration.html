@@ -3,7 +3,13 @@
 {% block content %}
     <div class="container login-msg">
     <h4 class=> Register Here </h4>
+        You will only be able to register and undertake
+        the Fake News task if you consent to what is contained in the following form:
+        <a href="http://guerzhoy.princeton.edu/FakeNewsStudy/ConsentDocument.pdf">
+            LINK TO CONSENT FORM</a>. In lieu of written signature, type in a signature into the
+        'I Consent to the Form Linked Above' text box below.
     <hr><br>
+
         {{ form.hidden_tag() }}
         {{ wtf.quick_form(form) }}
     </div>

@@ -14,7 +14,10 @@ class RegistrationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(3, 15, message='between 3 to 15 characters')])
     email = StringField('E-mail', validators=[DataRequired(), Email(), email_exists])
     password = PasswordField('Password', validators=[DataRequired(), Length(5), EqualTo('confirm', message='password must match')])
-    confirm = PasswordField('Confirm', validators=[DataRequired()])
+    confirm = PasswordField('Confirm Password', validators=[DataRequired()])
+    consent = StringField('I Consent to the Form Linked Above:',
+                          validators=[DataRequired(message='You may not proceed without consenting '
+                                                           'to the form linked above')])
     submit = SubmitField('Register')
 
 

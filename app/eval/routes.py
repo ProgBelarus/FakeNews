@@ -5,21 +5,37 @@ from app.catalog.models import Publication, Article
 from flask_security import current_user
 from flask import render_template, flash, request, redirect, url_for
 from flask_login import login_required
-from app.eval.forms import EvaluateManyArticlesForm
+from app.eval.forms import EvaluateArticleForm, EvaluateManyArticlesForm
 import numpy as np
+import random
 
 @eval1.route('/evaluation', methods=['GET', 'POST'])
+@login_required
 def display_eval_form():
     form = EvaluateManyArticlesForm(request.form)
-    articles = np.random.choice(Article.query.all(), size=20, replace=False)
+
     if form.validate_on_submit():
-        cnt=0
         form_id = np.random.randint(10000000)
         for entry in form.evals.entries:
-            Evaluation.create_evaluation(form_id=form_id, category=entry.data['category'], comments=entry.data['comment'], article_id=articles[cnt].id, user_id=current_user.id)
-            cnt += 1
+            Evaluation.create_evaluation(form_id=form_id,
+                                         category=entry.data['category'],
+                                         comments=entry.data['comment'],
+                                         article_id=int(entry.data['article_id']),
+                                         user_id=current_user.id)
         return render_template('evaluation_results.html', form_id=form_id)
-    return render_template('evaluation_prompt.html', EvalForm=form, Articles=articles, zip=zip, param='<br><br> Hello there!')
+
+    test_articles = Article.query.filter_by(is_gold=False).all()
+    gold_articles = Article.query.filter_by(is_gold=True).all()
+    articles = list(np.random.choice(test_articles, size=10, replace=False))
+    articles.extend(gold_articles[:10])
+    random.shuffle(articles)
+
+    cnt = 0
+    for article_form in form.evals.entries:
+        article_form.article_id.data = str(articles[cnt].id)
+        cnt += 1
+
+    return render_template('evaluation_prompt.html', EvalForm=form, Articles=articles, zip=zip)
 
 # @main.route('/display/publisher/<publisher_id>')
 # def display_publisher(publisher_id):

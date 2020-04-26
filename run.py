@@ -1,5 +1,6 @@
 from app import create_app, db
 from app.auth.models import User, Role
+from app.catalog.models import Article
 from sqlalchemy import exc
 import app.admin.database_mgmt as db_mgmt
 

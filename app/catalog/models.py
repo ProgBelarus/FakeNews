@@ -61,4 +61,5 @@ class Article(db.Model):
         return True
 
     def __repr__(self):
-        return '{} by {}'.format(self.title, Publication.query.get(self.pub_id).name)
+        return '{}'.format(self.title)
+        # return '{} by {}'.format(self.title, Publication.query.get(self.pub_id).name)
