@@ -11,8 +11,8 @@ def email_exists(form, field):
 
 
 class RegistrationForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(), Length(3, 15, message='between 3 to 15 characters')])
-    email = StringField('E-mail', validators=[DataRequired(), Email(), email_exists])
+    name = StringField('Name (As per MTurk regulations, DO NOT ENTER your ACTUAL name. MAKE IT UP.)', validators=[DataRequired(), Length(3, 15, message='between 3 to 15 characters')])
+    email = StringField('E-mail (As per MTurk regulations, DO NOT ENTER your ACTUAL email address. MAKE IT UP, it should be of the form something@somethingelse.com )', validators=[DataRequired(), Email(), email_exists])
     password = PasswordField('Password', validators=[DataRequired(), Length(5), EqualTo('confirm', message='password must match')])
     confirm = PasswordField('Confirm Password', validators=[DataRequired()])
     consent = StringField('I Consent to the Form Linked Above:',
