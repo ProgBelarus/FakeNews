@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a258bb56-1ad0-49aa-aa93-7dcb6fa67e34" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="a258bb56-1ad0-49aa-aa93-7dcb6fa67e34" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,38 +31,7 @@
     <favorites_list name="FakeNewsWebpage" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/deploy_site">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="147" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="147" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/gold_standard.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="381" column="24" selection-start-line="381" selection-start-column="24" selection-end-line="381" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,41 +127,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="FakeNewsWebpage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FakeNewsWebpage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FakeNewsWebpage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FakeNewsWebpage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FakeNewsWebpage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FakeNewsWebpage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FakeNewsWebpage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FakeNewsWebpage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FakeNewsWebpage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FakeNewsWebpage" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="eval" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,12 +241,12 @@
       <workItem from="1590852840612" duration="320000" />
       <workItem from="1591803097773" duration="283000" />
       <workItem from="1594055256974" duration="329000" />
-      <workItem from="1597960491166" duration="728000" />
+      <workItem from="1597960491166" duration="1314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124181000" />
+    <option name="totallyTimeSpent" value="124767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="883" extended-state="0" />
@@ -722,13 +655,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
+    <entry file="file://$PROJECT_DIR$/app/gold_standard.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="381" column="24" selection-start-line="381" selection-start-column="24" selection-end-line="381" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -739,10 +669,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/gold_standard.txt">
+    <entry file="file://$PROJECT_DIR$/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="381" column="24" selection-start-line="381" selection-start-column="24" selection-end-line="381" selection-end-column="24" />
+        <state relative-caret-position="243">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
